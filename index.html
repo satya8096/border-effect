@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Style</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100vh;
+            background-color: #333;
+        }
+        .card{
+            height: 350px;
+            width: 250px;
+            position: relative;
+            background-color: black;
+            overflow: hidden;
+            z-index: 1;
+            margin: 20px 20px;
+        }
+        .card .container::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 200px;
+            background: linear-gradient(transparent,yellow,yellow,yellow,transparent);
+            animation: animated 4s linear infinite;
+            /* animation-play-state: paused */
+        }
+        /* .card:hover .container::before{
+            animation-play-state: running;
+        } */
+
+        @keyframes animated {
+            0%{
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+            
+        }
+        .card .container::after{
+            content: 'Developer';
+            position: absolute;
+            inset: 3px;
+            background-color: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 35px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="container">
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+        </div>
+    </div>
+</body>
+</html>
